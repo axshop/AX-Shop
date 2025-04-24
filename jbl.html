@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JBL Headphones | AX Shop</title>
+  <link href="https://canarias.worten.es/i/8f5d421f8332c3346f4e07703ce5a9aeafae4831" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00bcd4;
+      --dark: #0f0f0f;
+      --light: #f8f8f8;
+      --accent: #1a1a1a;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .product-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: var(--accent);
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .product-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-content {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-content h1 {
+      font-size: 38px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .product-content p {
+      font-size: 18px;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 24px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .quantity-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .quantity-wrapper label {
+      font-size: 16px;
+    }
+
+    .quantity-wrapper input[type="number"] {
+      width: 80px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      text-align: center;
+      background: #2a2a2a;
+      color: #fff;
+    }
+
+    #discountMsg {
+      color: #4caf50;
+      font-weight: bold;
+      margin-bottom: 15px;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .buy-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
+      width: fit-content;
+    }
+
+    .buy-btn:hover {
+      background: #0097a7;
+    }
+
+    .warning-msg {
+      color: var(--warning);
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .back-home-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 30px;
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .product-wrapper {
+        flex-direction: column;
+      }
+      .product-content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="product-wrapper">
+      <div class="product-image">
+        <img src="https://canarias.worten.es/i/7ffff1cd15a555107a800b124283a1424c1fa2eb" />
+      </div>
+      <div class="product-content">
+        <h1>JBL Pulse 5</h1>
+        <p>Get direct access to our verified supplier. No intermediaries, straight from the source. Perfect for resale or dropshipping.</p>
+
+        <div class="quantity-wrapper">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" value="1" min="1" />
+        </div>
+
+        <p class="price" id="totalPrice">$19.99 USD</p>
+        <div id="discountMsg">🎉 20% discount applied when buying 2 or more</div>
+
+        <!-- Warning message about PayPal notes -->
+        <div class="warning-msg">
+          <strong>⚠️ IMPORTANT: Please include the following information in your PayPal notes:</strong>
+          <ul>
+            <li>Product Purchased: JBL Pulse 5</li>
+            <li>Your Shipping Address (Street, Country)</li>
+            <li>Your Phone Number</li>
+            <li>Your Email Address</li>
+          </ul>
+        </div>
+
+        <button class="buy-btn" onclick="redirectToPayPal()">Buy now</button>
+
+        <a href="PAGINA 1.html" class="back-home-btn">← Return to homepage</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 AX Shop — All rights reserved
+  </footer>
+
+  <script>
+    const quantityInput = document.getElementById('quantity');
+    const totalPrice = document.getElementById('totalPrice');
+    const discountMsg = document.getElementById('discountMsg');
+    const pricePerUnit = 19.99;
+
+    function updatePrice() {
+      const qty = parseInt(quantityInput.value) || 1;
+      let total = pricePerUnit * qty;
+
+      if (qty >= 2) {
+        total *= 0.8; // 20% discount
+        discountMsg.style.display = 'block';
+      } else {
+        discountMsg.style.display = 'none';
+      }
+
+      totalPrice.textContent = `$${total.toFixed(2)} USD`;
+    }
+
+    function redirectToPayPal() {
+      const qty = parseInt(quantityInput.value) || 1;
+      let total = pricePerUnit * qty;
+
+      if (qty >= 2) {
+        total *= 0.8;
+      }
+
+      const paypalUrl = `https://paypal.me/axshop4?country.x=ES&locale.x=es_ES=${total.toFixed(2)}`;
+      window.open(paypalUrl, '_blank');
+    }
+
+    quantityInput.addEventListener('input', updatePrice);
+    window.addEventListener('load', updatePrice);
+  </script>
+
+</body>
+</html>

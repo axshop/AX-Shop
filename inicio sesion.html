@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AX Shop | Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html {
+      font-family: 'Roboto', sans-serif;
+      height: 100%;
+      background: url('https://i.imgur.com/Wsw8s2y.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .auth-container, .main-page {
+      display: none;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .auth-box {
+      background-color: #111;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .auth-box h2 {
+      margin-bottom: 25px;
+      font-size: 28px;
+      color: #00bcd4;
+    }
+
+    .auth-box input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .auth-box button {
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: 0.3s;
+    }
+
+    .auth-box button:hover {
+      background-color: #0097a7;
+    }
+
+    .toggle {
+      margin-top: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      color: #ccc;
+    }
+
+    /* Show main page when authenticated */
+    .main-page.show {
+      display: block;
+    }
+
+    .auth-container.show {
+      display: flex;
+    }
+
+    /* Tu CSS existente lo insertamos aquí abajo ⬇️ */
+  </style>
+</head>
+<body>
+  <!-- Login/Register UI -->
+  <div class="auth-container show" id="authContainer">
+    <div class="auth-box">
+      <h2 id="formTitle">Iniciar Sesión</h2>
+      <input type="text" placeholder="Usuario" id="username" />
+      <input type="password" placeholder="Contraseña" id="password" />
+      <button onclick="login()">Entrar</button>
+      <div class="toggle" onclick="toggleForm()">¿No tienes cuenta? Regístrate</div>
+    </div>
+  </div>
+
+  <!-- Página principal -->
+  <div class="main-page" id="mainPage">
+    <!-- INSERTAMOS AQUÍ TU CÓDIGO DE LA PÁGINA ORIGINAL -->
+    <!-- CÓDIGO OMITIDO POR BREVEDAD -->
+  </div>
+
+  <script>
+    let isLogin = true;
+
+    function toggleForm() {
+      const title = document.getElementById("formTitle");
+      const button = document.querySelector(".auth-box button");
+      const toggle = document.querySelector(".toggle");
+
+      isLogin = !isLogin;
+
+      if (isLogin) {
+        title.innerText = "Iniciar Sesión";
+        button.innerText = "Entrar";
+        toggle.innerText = "¿No tienes cuenta? Regístrate";
+      } else {
+        title.innerText = "Registrarse";
+        button.innerText = "Registrarse";
+        toggle.innerText = "¿Ya tienes cuenta? Inicia sesión";
+      }
+    }
+
+    function login() {
+      // Aquí podrías validar los datos si tuvieras backend
+      document.getElementById("authContainer").classList.remove("show");
+      document.getElementById("mainPage").classList.add("show");
+    }
+  </script>
+</body>
+</html>
